@@ -1,0 +1,129 @@
+#Post Bot
+
+
+
+import praw
+import random
+import os
+import datetime
+import time
+
+reddit_con_count = 0
+
+def redditConnect():
+    
+    global reddit_con_count
+    reddit_con_count += 1
+    
+    reddit = praw.Reddit(
+        client_id="<GET FROM REDDIT>",
+        client_secret="<GET FROM REDDIT>",
+        user_agent="YHYH",
+        username=""<GET FROM REDDIT>"",
+        password=""<GET FROM REDDIT>"",
+    )
+    print('------------------------------------------------------------------------------------------------------')
+    print(f"POST NUMBER {reddit_con_count}")
+    return reddit
+
+def get_files_from_folder(folder_path):
+    files = os.listdir(folder_path)
+    return files
+
+def get_links_from_file(file_path):
+    with open(file_path, 'r') as file:
+        links = [line.strip() for line in file]
+    return links
+
+
+def postToReddit(redditCon, subreddit, title_file_path, image_folder_path, video_link_file_path, onlyfans_link, posted_titles_file_path, posted_links_file_path, flair_id):
+    subreddit = redditCon.subreddit(subreddit)
+
+    with open(title_file_path, 'r', encoding='utf-8') as f:
+        titles = [line.strip() for line in f]
+
+    try:
+        with open(posted_titles_file_path, 'r', encoding='utf-8') as f:
+            posted_titles = f.read().splitlines()
+    except FileNotFoundError:
+        posted_titles = []
+
+    try:
+        with open(posted_links_file_path, 'r', encoding='utf-8') as f:
+            posted_links = f.read().splitlines()
+    except FileNotFoundError:
+        posted_links = []
+
+    available_titles = list(set(titles) - set(posted_titles))
+
+    if not available_titles:
+        print("All titles have been used.")
+        return
+
+    title = random.choice(available_titles)
+
+    image_files = get_files_from_folder(image_folder_path)
+    available_images = [image_file for image_file in image_files if image_file not in posted_links]
+
+    available_links = get_links_from_file(video_link_file_path)
+    available_links = [link for link in available_links if link not in posted_links]
+
+    if not available_links and not available_images:
+        print("All images and links have been used.")
+        return
+
+    if available_images and (not available_links or random.choice([True, False])):
+        image_file = random.choice(available_images)
+        image_path = os.path.join(image_folder_path, image_file)
+
+        with open(posted_links_file_path, 'a') as f:
+            f.write(f"{image_file}\n")
+    
+        try:
+            submission = subreddit.submit_image(title=title, image_path=image_path, flair_id=flair_id)
+            print(f"Image posted successfully to {subreddit.display_name}.")
+        except praw.exceptions.RedditAPIException as e:
+            if e.error_type == "SUBREDDIT_NOTALLOWED":
+                print(f"{subreddit.display_name} is a banned subreddit.")
+                return
+            else:
+                raise e
+        except praw.exceptions.WebSocketException as e:
+            print("WebSocket timeout error occurred. Continuing with the code...")
+
+    elif available_links:
+        link = random.choice(available_links)
+
+        with open(posted_links_file_path, 'a') as f:
+            f.write(f"{link}\n")
+
+        try:
+            submission = subreddit.submit(title=title, url=link, flair_id=flair_id)
+            print(f"Link posted successfully to {subreddit.display_name}.")
+        except praw.exceptions.RedditAPIException as e:
+            if e.error_type == "SUBREDDIT_NOTALLOWED":
+                print(f"{subreddit.display_name} is a banned subreddit.")
+                return
+            else:
+                raise e
+        except praw.exceptions.WebSocketException as e:
+            print("WebSocket timeout error occurred. Continuing with the code...")
+
+    with open(posted_titles_file_path, 'a', encoding='utf-8') as f:
+        f.write(f"{title}\n")
+
+    time.sleep(4)
+
+    if onlyfans_link:
+        comment_text = f"Make some shit up {onlyfans_link}"
+        submission.reply(comment_text)
+        print("Comment posted successfully.")
+        
+        
+if __name__ == '__main__':
+        
+        
+(REDDIT CON STUFF GO HERE)
+    
+
+    
