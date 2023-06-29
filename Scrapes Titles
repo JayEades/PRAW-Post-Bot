@@ -1,0 +1,38 @@
+#TITLE SCRAPER FOR MODEL
+
+import praw
+import os
+
+reddit = praw.Reddit(
+    client_id='vtUjCAAyL_0xXKfQBJYD8g',
+    client_secret='yEfjdEOUXKaR-Au4x0MBPS_eaV6VJw',
+    user_agent='<Console:ScrapeTitles-1.0>)'
+)
+
+modelname = input("Enter the model's name: ").lower()
+age = input("Enter the age: ").lower()
+file_path = r'C:/Users/Jay/Downloads/Python Stuff/{}.titles.for.code.txt'.format(modelname)
+directory_path = r'G:/My Drive/Reddit Bots/Models/{}'.format(modelname) 
+
+os.makedirs(directory_path, exist_ok=True)
+
+file_path = os.path.join(directory_path, "{}.titles.for.code.txt".format(modelname))
+
+
+subreddit = reddit.subreddit('onlyfansgirls101')
+
+posts = subreddit.new(limit=200)
+
+num_posts_written = 0
+
+with open(file_path, 'w', encoding='utf-8') as f:
+    for post in posts:
+        title = post.title
+        if any(x in title for x in ['cheap', 'bath', 'shower', 'page', 'TRIAL', 'LINK', 'Asian', 'Asians', 'asian', 'asians', 'Pregnant', 'ONLINE', 'Online', 'online', 'Active', 'active', 'pregnant', '(m)', 'of', 'sub', 'Sub', 'Subscribe', 'OnlyFans', 'onlyfans', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '[m]', '{m}', '(mw)', '[mw]', '{mw}', '[M]', '(M)', '[Mw', '[M₩', '[nb]', 'PPV', 'feed', 'Feed', 'Onlyfans', 'pussy', 'Pussy', 'poo', 'Poo', 'link', 'OF', 'FREE', 'Link', 'free', 'Free', '{M}', 'customs', 'available', 'Customs', 'Trial', 'comments', 'Available', 'Sub', 'Page', 'Comments', 'Lnk', 'Fart']) or any(c.isdigit() for c in title):
+            continue
+        f.write('({}, f) '.format(age) + title + '\n')
+        num_posts_written += 1
+        if num_posts_written == 200:
+            break
+            
+    print('Done')
