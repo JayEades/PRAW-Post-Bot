@@ -1,0 +1,145 @@
+import os
+import datetime
+import random
+
+modelname = input("Enter the model's name: ")
+
+onlyfans_links = {
+    'Tara': 'aurora01x',
+    'Carmen': 'caramel.rose',
+    'Chloe': 'chloelouiseexo',
+    'Thalia': 'dashingthalia',
+    'Courtney': 'ccork90',
+    'Laurie': 'lauriex'
+}
+
+directories = [
+    {
+        'directory': os.path.normpath(os.path.join(r'G:\My Drive\Reddit Bots\Models', modelname, 'Populated Subreddits - Account 1')),
+        'output_file': f"subreddits_code_{modelname}_Account1.txt"
+
+    },
+    {
+        'directory': os.path.normpath(os.path.join(r'G:\My Drive\Reddit Bots\Models', modelname, 'Populated Subreddits - Account 2')),
+        'output_file': f"subreddits_code_{modelname}_Account2.txt"
+    }
+]
+
+subreddit_flair_ids = {
+    "onlyfans_promo": "\"344fb8e2-3d8c-11ed-8ec0-3e71b88969c7\"",
+    "amihotaf": "\"141c1cf4-6170-11eb-8f38-0ec57094a705\"",
+    "greatview": "\"f1823e98-f48b-11ec-a3f1-cadc88cbf939\"",
+    "moongains": "\"23592d7e-3392-11ed-a073-7620acbb0b99\"",
+    "onlyfans101tallgirls": "\"ce6bc9ea-4ee2-11ed-9cbc-0e66e3bbee5c\"",
+    "onlyfansrainbowheads": "\"f9eea286-3e76-11ec-891b-d63e90b24544\"",
+    "onlyfanssmallgirls": "\"b1d3cf7e-2d16-11ec-b81a-0673da2c1477\"",
+    "onlyfansapac": '"85640528-16e9-11ec-b886-3295bccbff1a"',
+    "onlyfanscougars": '"08ce729e-576e-11ec-ab0a-ba686feaa933"',
+    "onlyfanseasterneurope": '"ee66bd84-b0fb-11ec-8a4e-b298358360ae"',
+    "onlyfansshmilfs": '"7aa73064-576d-11ec-9a6c-ea68d4ea22e5"',
+    "slutsofsnapchat": '"999b570e-178c-11e8-b845-0e3eb9302c3a"',
+    "selfie_heaven": '"d703e3a4-d3e4-11ec-80a0-ce931a8591e8"',
+    "sluts": '"112e3c58-c49b-11ed-836c-22cca5646264"',
+    "clothedforprejacs": '"f4458688-2bd0-11eb-a6a4-0e9198870d97"',
+    "alldayfucknsfw": '"230f0918-0068-11ed-8d9c-be69bc26dfb8"',
+    "camgirls": '"591bcfb4-d1f1-11ec-a656-c21abf2abd66"',
+    "nofans": '"71d5172c-b312-11ea-8341-0e235dc4100f"',
+    "altgonewild": '"843c2972-d089-11ed-9d91-ea20716d2b37"',
+    "sexybutnotporn": '"00e58396-1413-11eb-8f50-0e47b7f7719d"',
+    "obsf": '"6978fe58-98fd-11ed-8554-e6939cfcaca5"',
+    "piercednsfw": '"260dfcbe-2d65-11eb-990c-0e5cddeffc0f"',
+    "whitecheeks": '"69f0a988-fa57-11ed-8062-ead1f775101e"'
+
+}
+
+subreddit_OF_link = {
+    "amihotaf": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansblonde": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "moongains": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfans__nudes": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfans_promo": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfans101": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfans101brandnew": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfans101fitgirls": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfans101inked": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfans101pierced": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfans101tallgirls": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansfaces": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansfashionistas": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansgirls101": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansjustright": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansnevernude": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansnextdoorgirls": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfanspetite": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansprom": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfanspromotion": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfanspromotions": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansrainbowheads": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansshorties": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfanssmallgirls": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "promoteonlyfans": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "xsmallgirls": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "boobs": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfans101bustybabes": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansbusty": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfans101asstastic": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansasstastic": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansbrunette": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansshmilfs": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfanscougars": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfans101ebony": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansreds": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfans101hotmombods": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansapac": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "sluts": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansmascaliente": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansbrainbabes": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansamazons": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "casualnudity": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansgenz": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansnaturallyhot": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "onlyfansinkless": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "backview": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
+    "piercednsfw": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower())
+}
+
+save_directory = os.path.join(r"G:\My Drive\Reddit Bots\Models", modelname)
+
+if not os.path.exists(save_directory):
+    os.makedirs(save_directory)
+
+for directory_info in directories:
+    directory = directory_info['directory']
+    output_file = directory_info['output_file']
+    save_file_path = os.path.join(save_directory, output_file)
+
+    with open(save_file_path, "w") as f:
+        folder_names = [folder_name for folder_name in os.listdir(directory) if os.path.isdir(os.path.join(directory, folder_name))]
+        random.shuffle(folder_names)
+
+        for folder_name in folder_names:
+            print(folder_name)
+
+            subreddit_name = folder_name[2:].lower()
+            random_minutes = random.randint(2, 10)
+
+            flair_id = subreddit_flair_ids.get(subreddit_name, None)
+            onlyfans_link = subreddit_OF_link.get(subreddit_name, None)
+
+            posted_links_directory = r"G:\My Drive\Reddit Bots\Posted Titles and Links\Posted Links"
+            posted_titles_directory = r"G:\My Drive\Reddit Bots\Posted Titles and Links\Posted Titles"
+
+            code = f"""
+        reddit_con = redditConnect()
+
+        time.sleep(60 * {random_minutes})
+
+        postToReddit(reddit_con, '{subreddit_name}', title_file_path=f"G:/My Drive/Reddit Bots/Models/{modelname}/{modelname}.titles.for.code.txt",
+        image_folder_path=r"{os.path.join(directory, folder_name)}",
+        video_link_file_path=r"{os.path.join(directory, f"r {subreddit_name}.txt")}",
+        posted_titles_file_path=r"{os.path.join(posted_titles_directory, subreddit_name + '_posted_titles.txt')}",
+        posted_links_file_path=r"{os.path.join(posted_links_directory, subreddit_name + '_posted_links.txt')}",
+        onlyfans_link={onlyfans_link}, flair_id={flair_id})
+
+    """
+            f.write(code)
