@@ -1,0 +1,31 @@
+import glob
+import os
+
+modelname = "Carmen"
+
+dir_path = os.path.join(r'G:\My Drive\Reddit Bots\Models', modelname, 'Populated Subreddits')
+
+folders_to_clear = glob.glob(os.path.join(dir_path, '*'))
+
+num_folders_to_clear = len(folders_to_clear)
+num_folders_processed = 0
+num_files_processed = 0
+
+print(f"{num_folders_to_clear} folders found.")
+
+clear_all = input("Do you want to clear all folders? ").lower()
+
+if clear_all == "yes":
+    for folder_path in folders_to_clear:
+        try:
+            files_to_clear = glob.glob(os.path.join(folder_path, '*'))
+            for file_path in files_to_clear:
+                if os.path.isfile(file_path):
+                    os.remove(file_path)
+                    num_files_processed += 1
+            num_folders_processed += 1
+        except Exception as e:
+            print(f"Error clearing folder {folder_path}: {str(e)}")
+    print(f"All folders cleared. Processed {num_folders_processed} folders and {num_files_processed} files.")
+else:
+    print("No folders were cleared.")
