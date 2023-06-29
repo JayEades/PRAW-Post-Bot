@@ -1,0 +1,30 @@
+##AUTOMATICALLY MAKES NAME FOLDER, PHOTOS FOLDERS AND SUBREDDIT FOLDER BASED ON 'model_name'
+
+
+import os
+
+model_name = "Laurie"
+
+base_directory = r"G:\My Drive\Reddit Bots\Models"
+
+model_folder = os.path.join(base_directory, model_name)
+os.makedirs(model_folder, exist_ok=True)
+
+populated_subreddits_folder1 = os.path.join(model_folder, "Populated Subreddits - Account 1")
+os.makedirs(populated_subreddits_folder1, exist_ok=True)
+
+populated_subreddits_folder2 = os.path.join(model_folder, "Populated Subreddits - Account 2")
+os.makedirs(populated_subreddits_folder2, exist_ok=True)
+
+model_photos_folder = os.path.join(model_folder, "Model Photos")
+os.makedirs(model_photos_folder, exist_ok=True)
+
+subfolders = ["Bum", "Boobs", "All"]
+for subfolder in subfolders:
+    subfolder_path = os.path.join(model_photos_folder, subfolder)
+    os.makedirs(subfolder_path, exist_ok=True)
+
+    txt_file_path = os.path.join(model_photos_folder, subfolder.capitalize() + ".txt")
+    open(txt_file_path, 'a').close()
+
+print("Folder structure created successfully!")
