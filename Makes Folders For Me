@@ -3,9 +3,10 @@
 
 import os
 
-model_name = "Laurie"
+#Change to your modelname
+model_name = "modelname"
 
-base_directory = r"G:\My Drive\Reddit Bots\Models"
+base_directory = r"C:\Example\Example\Models"
 
 model_folder = os.path.join(base_directory, model_name)
 os.makedirs(model_folder, exist_ok=True)
