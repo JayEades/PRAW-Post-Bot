@@ -2,19 +2,22 @@
 
 import praw
 
+#Update the details
 def redditConnect():
     reddit = praw.Reddit(
-        client_id="Zeuq7uD0JDtDLj25kvvN4Q",
-        client_secret="V_df5NZJEn2kx2pMBePZNzwrgM86Wg",
-        user_agent="<console:FlairIDBot-1.0>",
-        username="melowagency",
-        password="?B00bies22",
+        client_id="",
+        client_secret="",
+        user_agent="",
+        username="",
+        password="?",
     )
     print(reddit.read_only)
     return reddit
 
 reddit = redditConnect() 
-subreddit = reddit.subreddit('WhiteCheeks') 
+
+#Put a subreddit name... dont include 'r/'
+subreddit = reddit.subreddit('example') 
 
 for flair in subreddit.flair.link_templates:
     print(f"Flair text: {flair['text']}, Flair ID: {flair['id']}")
