@@ -1,9 +1,11 @@
 import glob
 import os
 
-modelname = "Carmen"
+#Change to your modelname
+modelname = "Modelname"
 
-dir_path = os.path.join(r'G:\My Drive\Reddit Bots\Models', modelname, 'Populated Subreddits')
+#Change to your directory, make sure directory includes modelname
+dir_path = os.path.join(r'C:\My Drive\Example\Models', modelname, 'Example')
 
 folders_to_clear = glob.glob(os.path.join(dir_path, '*'))
 
