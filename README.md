@@ -8,7 +8,7 @@ It imports the os module, which provides a way to interact with the operating sy
 
 The variable model_name is set to whatever you want. This will be used as the name for the main folder.
 
-The variable base_directory is set to "G:\My Drive\Reddit Bots\Models". This is the base directory where the folder structure will be created.
+The variable base_directory is set to "C:\Example\Reddit Bots\Models". This is the base directory where the folder structure will be created.
 
 The variable model_folder is created by joining the base_directory and model_name using the os.path.join() function. This will be the main folder that will contain the subfolders.
 
@@ -73,7 +73,7 @@ Overall, the code is used to organize and populate folders or text files with ph
 
 It imports the necessary modules: glob for file matching, and os for file and directory operations.
 
-It sets the value of the variable modelname to "Carmen". This represents the name of the model.
+It sets the value of the variable modelname to "modelname". This represents the name of the model.
 
 It constructs the dir_path variable by joining the path components using os.path.join(). This specifies the directory path where the folders to be cleared are located.
 
