@@ -4,27 +4,29 @@ import random
 
 modelname = input("Enter the model's name: ")
 
+#Put the end of the OF link, so if OF link is 'https://onlyfans.com/melowagency' then just put'melowagency'
 onlyfans_links = {
-    'Tara': 'aurora01x',
-    'Carmen': 'caramel.rose',
-    'Chloe': 'chloelouiseexo',
-    'Thalia': 'dashingthalia',
-    'Courtney': 'ccork90',
-    'Laurie': 'lauriex'
+    'example': 'melowagency',
+    'modelname': 'OFLink',
+    'modelname': 'OFLink',
+    'modelname': 'OFLink',
+    'modelname': 'OFLink',
+    'modelname': 'OFLink'
 }
 
 directories = [
     {
-        'directory': os.path.normpath(os.path.join(r'G:\My Drive\Reddit Bots\Models', modelname, 'Populated Subreddits - Account 1')),
+        'directory': os.path.normpath(os.path.join(r'C:\Example\Example\Models', modelname, 'Populated Subreddits - Account 1')),
         'output_file': f"subreddits_code_{modelname}_Account1.txt"
 
     },
     {
-        'directory': os.path.normpath(os.path.join(r'G:\My Drive\Reddit Bots\Models', modelname, 'Populated Subreddits - Account 2')),
+        'directory': os.path.normpath(os.path.join(r'C:\Example\Example\Models', modelname, 'Populated Subreddits - Account 2')),
         'output_file': f"subreddits_code_{modelname}_Account2.txt"
     }
 ]
 
+#USE FLAIR ID BOT TO FIND THE FLAIR ID's. Feel free to add/remove any subreddits 
 subreddit_flair_ids = {
     "onlyfans_promo": "\"344fb8e2-3d8c-11ed-8ec0-3e71b88969c7\"",
     "amihotaf": "\"141c1cf4-6170-11eb-8f38-0ec57094a705\"",
@@ -52,6 +54,7 @@ subreddit_flair_ids = {
 
 }
 
+#Feel free to add/remove any subreddits
 subreddit_OF_link = {
     "amihotaf": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
     "onlyfansblonde": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower()),
@@ -103,7 +106,7 @@ subreddit_OF_link = {
     "piercednsfw": '"https://onlyfans.com/{}"'.format(onlyfans_links[modelname].lower())
 }
 
-save_directory = os.path.join(r"G:\My Drive\Reddit Bots\Models", modelname)
+save_directory = os.path.join(r"C:\Example\Example\Models", modelname)
 
 if not os.path.exists(save_directory):
     os.makedirs(save_directory)
@@ -121,20 +124,20 @@ for directory_info in directories:
             print(folder_name)
 
             subreddit_name = folder_name[2:].lower()
-            random_minutes = random.randint(2, 10)
+            random_minutes = random.randint(2, 10) #Change numbers here if you want higher minutes between posts
 
             flair_id = subreddit_flair_ids.get(subreddit_name, None)
             onlyfans_link = subreddit_OF_link.get(subreddit_name, None)
 
-            posted_links_directory = r"G:\My Drive\Reddit Bots\Posted Titles and Links\Posted Links"
-            posted_titles_directory = r"G:\My Drive\Reddit Bots\Posted Titles and Links\Posted Titles"
+            posted_links_directory = r"C:\Example\Example\Posted Titles and Links\Posted Links" #Make sure to make these directories somewhere 
+            posted_titles_directory = r"C:\Example\Example\Posted Titles and Links\Posted Titles"
 
             code = f"""
         reddit_con = redditConnect()
 
         time.sleep(60 * {random_minutes})
 
-        postToReddit(reddit_con, '{subreddit_name}', title_file_path=f"G:/My Drive/Reddit Bots/Models/{modelname}/{modelname}.titles.for.code.txt",
+        postToReddit(reddit_con, '{subreddit_name}', title_file_path=f"C:/Example/Example/Models/{modelname}/{modelname}.titles.for.code.txt",
         image_folder_path=r"{os.path.join(directory, folder_name)}",
         video_link_file_path=r"{os.path.join(directory, f"r {subreddit_name}.txt")}",
         posted_titles_file_path=r"{os.path.join(posted_titles_directory, subreddit_name + '_posted_titles.txt')}",
