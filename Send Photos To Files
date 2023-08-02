@@ -1,5 +1,7 @@
-# ADDS THE PHOTOS AND LINKS TO THE FOLDERS/ TXT FILES BASED ON CRITERIA, LOADS OF SUBREDDITS
-
+# ADDS THE PHOTOS AND LINKS TO THE FOLDERS/ TXT FILES BASED ON CRITERIA, YOU NEED TO HAVE PHOTOS IN THE DIRECTORIES 'C:\Example\Example\Models", modelname, "Model Photos\All'  
+                                                                                                                    #C:\Example\Example\Models", modelname, "Model Photos\Boobs
+                                                                                                                    #C:\Example\Example\Models", modelname, "Model Photos\Bum
+#and also same for links in the txt files, C:\Example\Example\Models", modelname, "Model Photos\All.txt for example
 
 
 import os
@@ -18,17 +20,17 @@ piercedt = input("Does the model have pierced nips?: ").lower()
 ethnicity = input("Enter the models ethnicity (White, Black, APAC, Eastern Europe): ").lower()
 work = input("Have they had work done?: ").lower()
 
-src_dir = os.path.join(r"C:\Example\Example\Models", modelname, "Example")
+src_dir = os.path.join(r"C:\Example\Example\Models", modelname, "Model Photos")
 
 excluded_subreddits = []
 
 #Add/remove any subreddits you want, add them first to both of the 'file_mapping' things, then if they are specific subreddits add them to any of the excluding stuff. 
 
 if account == "1":
-    dst_dir = os.path.join(r"G:\My Drive\Reddit Bots\Models", modelname, "Populated Subreddits - Account 1")
+    dst_dir = os.path.join(r"C:\Example\Example\Models", modelname, "Populated Subreddits - Account 1")
     excluded_subreddits = ['r Amateur', 'r Nofans', 'r Nofansmild', 'r Gonewild30plus', 'r GoneWild', 'r Ginger']
 elif account == "2":
-    dst_dir = os.path.join(r"G:\My Drive\Reddit Bots\Models", modelname, "Populated Subreddits - Account 2")
+    dst_dir = os.path.join(r"C:\Example\Example\Models", modelname, "Populated Subreddits - Account 2")
     excluded_subreddits = ['r OnlyFansBlonde', 'r OnlyFansGenZ', 'r Nsfw_Social', 'r OnlyFans101Asstastic', 'r onlyfansgirls101', 'r onlyfanspromotions', 'r OnlyFansAsstastic', 'r OnlyFans101BustyBabes', 'r OnlyFansBusty', 'r OnlyFansAmazons', 'r OnlyFansNaturallyHot', 'r OnlyFansMasCaliente', 'r OnlyFansInkless', 'r OnlyFansBrainBabes', 'r OnlyFansBrunette', 'r OnlyFansReds', 'r OnlyFansSHMILFS', 'r OnlyFansCougars', 'r OnlyFans101', 'r OnlyFans101BrandNew', 'r OnlyFans101Ebony', 'r OnlyFans101FitGirls', 'r OnlyFans101HotMomBods', 'r OnlyFans101Inked', 'r OnlyFans101Pierced', 'r OnlyFans101TallGirls', 'r OnlyFansAPAC', 'r OnlyFansBigBeauties', 'r OnlyFansEasternEurope', 'r OnlyFansFaces', 'r OnlyFansFashionistas', 'r Nsfw_Amateurs', 'r OnlyFansJustRight', 'r OnlyFansNeverNude', 'r OnlyFansNextDoorGirls', 'r OnlyFansPetite', 'r OnlyFansprom', 'r OnlyFansPromotion', 'r onlyfans_blessed', 'r OnlyFansRainbowHeads', 'r OnlyFansShorties', 'r OnlyFansSmallGirls', 'r PromoteOnlyFans', 'r HungryButts', 'r Booty', 'r Asstastic', 'r WhiteCheeks', 'r Backview', 'r Boobs', 'r NaturalTitties', 'r PiercedNipples', 'r TallGoneWild', 'r PiercedNSFW', 'r Curvy', 'r ThickWhiteGirls', 'r Brunette', 'r OBSF', 'r Blonde_Bombshells', 'r RedHeads', 'r RedheadGifs', 'r OnlyFansInkless', 'r gonewild18', '18F', '18y', 'r PerfectBody', 'r Latinas', 'r LatinasGW', 'r UnderwearGW', 'r GonewildColor', 'r Asiansgonewild', 'r GoneMildColor', 'r Gymgirls', 'r RealGirls', 'r AdorableNudes', 'r AmIHotAF', 'r hotclub', 'r altgonewild', 'r funsized', 'r UniversityGirls', 'r realsexyselfies', 'r skinnytail', 'r Babes', 'r barelylegalteens', 'r CamGirls', 'r BabesNSFW', 'r PerfectBabesNSFW', 'r AlldayfuckNSFW', 'r AthleticBabes', 'r ClothedForPrejacs', 'r NSFW_Social', 'r SmallCutie', 'r GirlsGW', 'r SexyButNotPorn', 'r TwentyPlus', 'r SchoolgirlsXXX', 'r RealCute', 'r Sluts', 'r Selfie_Heaven', 'r SlutsOfSnapchat', 'r DaughterTraining', 'r Blondes', 'r CollegeSluts', 'r NudeNonNude', 'r BarelyLegal', 'r VeryBarelyLegal', 'r 2000sGirls', 'r DadWouldBeProud', 'r GreatView', 'r SelfiesGoneWild', 'r Slut', 'r WifeyWorthy', 'r xsmallgirls']
     
     
