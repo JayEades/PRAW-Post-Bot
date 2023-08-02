@@ -5,7 +5,7 @@ import os
 modelname = "Modelname"
 
 #Change to your directory, make sure directory includes modelname
-dir_path = os.path.join(r'C:\My Drive\Example\Models', modelname, 'Example')
+dir_path = os.path.join(r'C:\Example\Example\Models', modelname, 'Populated Subreddits - 1')
 
 folders_to_clear = glob.glob(os.path.join(dir_path, '*'))
 
