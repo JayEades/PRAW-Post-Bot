@@ -6,21 +6,23 @@ import os
 import shutil
 
 modelname = input("Enter the model's name: ").lower()
-account = input("What account are you populating?: ").lower()
-subreddits = input("What subreddits do you want?: ").lower()
+account = input("What account are you populating?: (1 or 2) ").lower()
+subreddits = input("What subreddits do you want?: (of101 or all) ").lower()
 hair_color = input("Enter the model's hair colour: ").lower()
 age = int(input("Enter the model's age: "))
-body_type = input("Enter model's size (Thin, Curvy, Normal): ").lower()
-height = input("Enter model's height (Short, Tall, Average): ").lower()
+body_type = input("Enter model's size (Thin, Curvy): ").lower()
+height = input("Enter model's height (Short, Tall): ").lower()
 tattoos = input("Does the model have tattoos?: ").lower()
 pierced = input("Does the model have piercings?: ").lower()
 piercedt = input("Does the model have pierced nips?: ").lower()
 ethnicity = input("Enter the models ethnicity (White, Black, APAC, Eastern Europe): ").lower()
 work = input("Have they had work done?: ").lower()
 
-src_dir = os.path.join(r"G:\My Drive\Reddit Bots\Models", modelname, "Model Photos")
+src_dir = os.path.join(r"C:\Example\Example\Models", modelname, "Example")
 
 excluded_subreddits = []
+
+#Add/remove any subreddits you want, add them first to both of the 'file_mapping' things, then if they are specific subreddits add them to any of the excluding stuff. 
 
 if account == "1":
     dst_dir = os.path.join(r"G:\My Drive\Reddit Bots\Models", modelname, "Populated Subreddits - Account 1")
